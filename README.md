@@ -34,6 +34,20 @@ On macOS, built plugins are copied to:
 ./build/WireEmulator_artefacts/Release/Standalone/Wire\ Emulator.app/Contents/MacOS/Wire\ Emulator
 ```
 
+## macOS install (release downloads)
+
+Download the ZIP from [Releases](https://github.com/KolesnikovCode/YLAB-wires-emulator/releases), remove quarantine, and run the installer script:
+
+```bash
+xattr -dr com.apple.quarantine ~/Downloads/wires-emulator-*-macos-universal.zip
+# extract, then inside the wires-emulator folder:
+bash install.sh
+```
+
+Unsigned PKG installers are not shipped — macOS Gatekeeper blocks them without an Apple Developer certificate.
+
+For signed releases, set `CODESIGN_IDENTITY`, `INSTALLER_IDENTITY`, and `NOTARY_*` env vars before running `scripts/package-macos-release.sh`.
+
 ## Project structure
 
 ```

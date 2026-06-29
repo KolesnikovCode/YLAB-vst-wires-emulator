@@ -41,3 +41,30 @@ First public release of **wires-emulator** by YLAB — a macOS audio plugin for 
 2. Copy `VST3/wires-emulator.vst3` to `~/Library/Audio/Plug-Ins/VST3/`
 3. Copy `AU/wires-emulator.component` to `~/Library/Audio/Plug-Ins/Components/`
 4. Rescan plugins in your DAW
+
+## macOS Gatekeeper warning
+
+Downloads from GitHub are quarantined. Unsigned builds trigger Apple's security warning.
+
+**Option A — ZIP (recommended for unsigned builds):**
+
+```bash
+xattr -dr com.apple.quarantine ~/Downloads/wires-emulator-1.0.0-macos-universal.zip
+```
+
+Then extract and copy plugins manually (see Installation ZIP above).
+
+**Option B — PKG:**
+
+Right-click the `.pkg` file and choose **Open**, then confirm in the dialog.  
+Or remove quarantine first:
+
+```bash
+xattr -d com.apple.quarantine ~/Downloads/wires-emulator-1.0.0-macos-universal.pkg
+```
+
+**Option C — System Settings:**
+
+Open **System Settings → Privacy & Security** and click **Open Anyway** after the blocked attempt.
+
+Signed and notarized releases do not require these steps. See `scripts/package-macos-release.sh` for maintainer signing setup.
